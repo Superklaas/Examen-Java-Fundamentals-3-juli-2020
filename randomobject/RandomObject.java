@@ -21,7 +21,5 @@ public class RandomObject {
                 System.out.println("PAF");
             }
         }
-
     }
-
 }
