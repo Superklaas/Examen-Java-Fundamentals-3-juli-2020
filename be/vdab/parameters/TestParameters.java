@@ -17,22 +17,20 @@ public class TestParameters {
 
         // test isUrl method
         System.out.println("\nIS THE STRING A URL?");
-        for (int i = 0; i < strings.length; i++) {
-            if (StringsParameters.isUrl(strings[i]) == true) {
-                System.out.println(strings[i] + " is a URL");
-            }
-            else
-                System.out.println(strings[i] + " is no URL");
+        for (String string : strings) {
+            if (StringsParameters.isUrl(string)) {
+                System.out.println(string + " is a URL");
+            } else
+                System.out.println(string + " is no URL");
         }
 
         // test isPalindrome method
         System.out.println("\nIS THE STRING A PALINDROME?");
-        for (int i = 0; i < strings.length; i++) {
-            if (StringsParameters.isPalindrome(strings[i]) == true) {
-                System.out.println(strings[i] + " is a palindrome");
-            }
-            else
-                System.out.println(strings[i] + " is not a palindrome");
+        for (String string : strings) {
+            if (StringsParameters.isPalindrome(string)) {
+                System.out.println(string + " is a palindrome");
+            } else
+                System.out.println(string + " is not a palindrome");
         }
 
         // test printPalindromes method (optional, because palindromes look good!)

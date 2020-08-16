@@ -1,19 +1,22 @@
 package be.vdab.parameters;
 
-import java.util.Arrays;
-
 public class StringsParameters {
 
     public static boolean isPalindrome(String string) {
         // make string without spaces and upper cases
+
+        /*
+        Duplicate code in printPalindrome. Maybe look at extracting some code to a method.
+        Long methods like this should be split up in submethods!
+         */
         String stringLowerCase = string.toLowerCase();
         String[] stringSplitAtSpaces = stringLowerCase.split(" ");
-        String stringWithoutSpaces = "";
-        for (int i = 0; i < stringSplitAtSpaces.length; i++) {
-            stringWithoutSpaces += stringSplitAtSpaces[i];
+        StringBuilder stringWithoutSpaces = new StringBuilder();
+        for (String stringSplitAtSpace : stringSplitAtSpaces) {
+            stringWithoutSpaces.append(stringSplitAtSpace);
         }
         // make an array of the original string & create new array to put reverse of string
-        char[] array = stringWithoutSpaces.toCharArray();
+        char[] array = stringWithoutSpaces.toString().toCharArray();
         char[] arrayReverse = new char[array.length];
         // fill up the reverse array
         for (int i = 0; i < array.length; i++) {
@@ -41,26 +44,9 @@ public class StringsParameters {
     public static int isVowel(String string) {
         char[] array = string.toCharArray();
         int countVowels = 0;
-        for (int i = 0; i < array.length; i++) {
-            switch (array[i]) {
-                case 'a' :
-                    countVowels++;
-                    break;
-                case 'e' :
-                    countVowels++;
-                    break;
-                case 'i' :
-                    countVowels++;
-                    break;
-                case 'o' :
-                    countVowels++;
-                    break;
-                case 'u' :
-                    countVowels++;
-                    break;
-                case 'y' :
-                    countVowels++;
-                    break;
+        for (char c : array) {
+            switch (c) {
+                case 'a', 'e', 'i', 'o', 'u', 'y' -> countVowels++;
             }
         }
         return countVowels;
@@ -71,26 +57,24 @@ public class StringsParameters {
         // make string without spaces and upper cases
         String stringLowerCase = string.toLowerCase();
         String[] stringSplitAtSpaces = stringLowerCase.split(" ");
-        String stringWithoutSpaces = "";
-        for (int i = 0; i < stringSplitAtSpaces.length; i++) {
-            stringWithoutSpaces += stringSplitAtSpaces[i];
+        StringBuilder stringWithoutSpaces = new StringBuilder();
+        for (String stringSplitAtSpace : stringSplitAtSpaces) {
+            stringWithoutSpaces.append(stringSplitAtSpace);
         }
         // make an array of the original string & create new array to put reverse of string
-        char[] array = stringWithoutSpaces.toCharArray();
+        char[] array = stringWithoutSpaces.toString().toCharArray();
         char[] arrayReverse = new char[array.length];
         // fill up the reverse array
         for (int i = 0; i < array.length; i++) {
             arrayReverse[i] = array[array.length - i - 1];
         }
         // print out the palindromes
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (char c : array) {
+            System.out.print(c + " ");
         }
         System.out.println();
         for (int i = 0; i < array.length; i++) {
             System.out.print(arrayReverse[i] + " ");
         }
     }
-
-
 }
